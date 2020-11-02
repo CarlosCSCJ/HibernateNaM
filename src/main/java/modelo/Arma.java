@@ -1,10 +1,11 @@
 package modelo;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -19,9 +20,9 @@ public class Arma {
 	@Id
 	private String id;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private Personaje personaje;
+
+	@OneToMany(mappedBy = "arma", cascade = CascadeType.ALL)
+	private List<Personaje> personajes;
 
 
 }

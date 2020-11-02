@@ -6,6 +6,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -26,8 +28,9 @@ public class Personaje implements Serializable {
 	
 	@Column(name = "nombre")
 	private String nombre;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
+
+
+	@ManyToOne
+	@JoinColumn(name="id_alarma")
 	private Arma arma;
 }
