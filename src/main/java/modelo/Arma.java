@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -21,8 +21,8 @@ public class Arma {
 	private String id;
 
 
-	@OneToMany(mappedBy = "arma", cascade = CascadeType.ALL)
-	private List<Personaje> personajes;
+	@ManyToMany(cascade = CascadeType.DETACH,  mappedBy = "armas")
+	private List<Enemigo> enemigos;
 
 
 }
